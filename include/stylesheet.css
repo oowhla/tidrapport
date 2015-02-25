@@ -1,0 +1,127 @@
+.navbar-default {
+	background-color: #EAEAEA;
+	margin-bottom: 0px;
+	font-size: 16px;	
+}
+
+.navbar-brand {
+	background-color: #;
+	border-right: 1px solid #CACACA;
+	font-size: 20px;	
+
+}
+
+.jumbotron {
+	background: url('images/jumbotron.jpg') no-repeat center center !important;
+	font: white;
+	min-height: 300px;
+	margin-top: 0px;
+
+}
+
+.jumbotron h1 {
+	color: white;
+	padding-left: 40px;
+}
+
+.jumbotron h3 {
+	color: white;
+	padding-left: 40px;
+}
+
+.container-main {
+	margin-bottom: 180px;
+}
+
+
+body {
+	background-color: #FFF;
+	color: #777;
+}
+
+hr {
+	background-color: black;
+}
+
+a,
+a:hover {
+	color: #777;
+}
+
+.dropdown-menu {
+	background-color: #FFF;
+}
+
+.dropdown-menu > li > a {
+  color: #000;
+  background-color: #FFF;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #FFF;
+  text-decoration: none;
+  background-color: #CACACA;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #777;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  color: #555;
+  background-color: #AAA;
+}
+
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #333;
+  background-color: #AAA;
+}
+
+.navbar-bottom {
+	height: 130px;
+	padding-bottom: 30px;
+}
+
+.col-md-4 img {
+	height: 180px;
+	width: 360px;
+}
+
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+   .sidebar-nav .navbar li {
+
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.btn-block {
+	background-color: #FFF;
+	border: 1px solid #999;
+  border-radius: 0;
+}
