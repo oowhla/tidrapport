@@ -33,10 +33,5 @@ insert into Activities(activity) values
 	('Undersökning'),
 	('Design'),
 	('Programmering'),
-	('Testning');
-
-insert into Timereports(name, activity, week, day, minutes) values
-	('Ola', 'Design', 9, 'Wednesday', '80');
-
-
-select sum(minutes) from Timereports where name='Ola';
+	('Testning'),
+	('Övrigt');
