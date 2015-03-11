@@ -197,17 +197,21 @@ if(Input::exists()) {
 				</tr>
 				<?php
 				if($allNames) {
+					$totalMinutes = 0;
 					foreach($activityArray as $activity) {
 						$minutes = 0;
 						$result = $db->query("select sum(minutes) as minutes from Timereports where week=" . $week . " and activity='" . $activity . "'");
 						if($result->first()->minutes != NULL) {
 							$minutes = $result->first()->minutes;
 						}
+						$totalMinutes += $minutes;
 						echo '<tr><td>' . $activity . '</td><td>' . $minutes . ' </td>';
 					}
+					echo '<tr><td><b>Totalt</b></td><td><b>' . $totalMinutes . ' </b></td>';
 				} else {
 					$nameString = " and(";
 					$nameCount = 0;
+					$totalMinutes = 0;
 					foreach($nameArray as $name) {
 						if($nameCount > 0) {
 							$nameString = $nameString . " or name='" . $name . "'";
@@ -223,8 +227,10 @@ if(Input::exists()) {
 						if($result->first()->minutes != NULL) {
 							$minutes = $result->first()->minutes;
 						}
+						$totalMinutes += $minutes;
 						echo '<tr><td>' . $activity . '</td><td>' . $minutes . ' </td>';
 					}
+					echo '<tr><td><b>Totalt</b></td><td><b>' . $totalMinutes . ' </b></td>';
 				}
 				?>
 			</table>
@@ -245,10 +251,17 @@ if(Input::exists()) {
 				</tr>
 				<?php
 				if($allNames) {
+					$totalMinutes = 0;
 					foreach($activityArray as $activity) {
 						$result = $db->query("select sum(minutes) as minutes from Timereports where activity='" . $activity . "'");
-						echo '<tr><td>' . $activity . '</td><td>' . $result->first()->minutes . ' </td>';
+						$minutes = 0;
+						if($result->first()->minutes != NULL) {
+							$minutes = $result->first()->minutes;
+						}
+						echo '<tr><td>' . $activity . '</td><td>' . $minutes . ' </td>';
+						$totalMinutes += $minutes;
 					}
+					echo '<tr><td><b>Totalt</b></td><td><b>' . $totalMinutes . ' </b></td>';
 				} else {
 					$nameString = " and(";
 					$nameCount = 0;
@@ -261,14 +274,17 @@ if(Input::exists()) {
 						$nameCount++;						
 					}
 					$nameString = $nameString . ")";
+					$totalMinutes = 0;
 					foreach($activityArray as $activity) {
 						$result = $db->query("select sum(minutes) as minutes from Timereports where activity='" . $activity . "'" . $nameString);
 						$minutes = 0;
 						if($result->first()->minutes != NULL) {
 							$minutes = $result->first()->minutes;
 						}
+						$totalMinutes += $minutes;
 						echo '<tr><td>' . $activity . '</td><td>' . $minutes . ' </td>';
 					}
+					echo '<tr><td><b>Totalt</td><td><b>' . $totalMinutes . ' </b></td>';
 				}
 				?>
 			</table>
@@ -297,14 +313,17 @@ if(Input::exists()) {
 						$weekCount++;						
 					}
 					$weekString = $weekString . ")";
+					$totalMinutes = 0;
 					foreach($activityArray as $activity) {
 						$result = $db->query("select sum(minutes) as minutes from Timereports where activity='" . $activity . "'" . $weekString);
 						$minutes = 0;
 						if($result->first()->minutes != NULL) {
 							$minutes = $result->first()->minutes;
 						}
+						$totalMinutes += $minutes;
 						echo '<tr><td>' . $activity . '</td><td>' . $minutes . ' </td>';
 					}
+					echo '<tr><td><b>Totalt</td><td><b>' . $totalMinutes . ' </b></td>';
 				} else {
 					$weekString = " and(";
 					$weekCount = 0;
@@ -327,6 +346,7 @@ if(Input::exists()) {
 						}
 						$nameCount++;						
 					}
+					$totalMinutes = 0;
 					$nameString = $nameString . ")";
 					foreach($activityArray as $activity) {
 						$result = $db->query("select sum(minutes) as minutes from Timereports where activity='" . $activity . "'" . $weekString . $nameString);
@@ -334,8 +354,10 @@ if(Input::exists()) {
 						if($result->first()->minutes != NULL) {
 							$minutes = $result->first()->minutes;
 						}
+						$totalMinutes += $minutes;
 						echo '<tr><td>' . $activity . '</td><td>' . $minutes . ' </td>';
 					}
+					echo '<tr><td><b>Totalt</td><td><b>' . $totalMinutes . ' </b></td>';
 				}
 				?>
 			</table>
